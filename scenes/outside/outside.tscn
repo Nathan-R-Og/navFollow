@@ -1,0 +1,287 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/overworld/World Camera.gd" type="Script" id=1]
+[ext_resource path="res://scenes/textStuff.gd" type="Script" id=2]
+[ext_resource path="res://scenes/warps.gd" type="Script" id=3]
+[ext_resource path="res://scenes/objectSetDepth.gd" type="Script" id=4]
+[ext_resource path="res://scenes/outside/outsideRun.gd" type="Script" id=5]
+[ext_resource path="res://assets/overworld/player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://textFunctions/TextStuff.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/outside/bus.png" type="Texture" id=8]
+[ext_resource path="res://scenes/outside/outside.png" type="Texture" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "reset"
+tracks/0/type = "value"
+tracks/0/path = NodePath("object:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("object/MeshInstance2D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("object:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -640, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("object/MeshInstance2D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 90.0, 180.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "intro"
+length = 100.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Objects/object:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("../Objects/object:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 910, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("../Objects/object:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 1000, -0.25, 0, 0.25, 0, 1000, -0.25, 0, 0, 0, 432, -1.25, 0, 0.25, 0, 432, -0.25, 0, 0.25, 0, 560, -0.25, 0, 0.25, 0, 304, -0.25, 0, 0.25, 0, 624, -0.25, 0, 0.25, 0, -1000, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 4, 9, 10, 11, 12, 13.1 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Objects/Player:world")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "bp" ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Objects/Player:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 8, 9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 554.547, 346.461 ), Vector2( 910, 320 ), Vector2( 782, 320 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../Objects/Player:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../Objects/Player:direction")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 14 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "left" ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../Objects/Player:movementType")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 14 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../Objects/Player:animChange")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 8, 9, 14 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ "left", "right", "left" ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../Objects/Player:animStopping")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 9, 9.9, 14 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true ]
+}
+
+[node name="World" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="room2" type="Sprite" parent="."]
+position = Vector2( 480, 270 )
+texture = ExtResource( 9 )
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="rigid" type="StaticBody2D" parent="World"]
+position = Vector2( 320, 140 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/rigid"]
+position = Vector2( -406.247, -113.369 )
+polygon = PoolVector2Array( 158.541, -21.4336, 155.174, 247.957, 127.112, 244.59, 124.867, 341.122, 152.929, 342.244, 155.174, 512.858, -131.054, 508.368, -133.299, -25.9234 )
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+position = Vector2( 480, 270 )
+current = true
+script = ExtResource( 1 )
+followingPlayer = false
+
+[node name="cameraStart" type="Position2D" parent="World"]
+
+[node name="cameraEnd" type="Position2D" parent="World"]
+position = Vector2( 960, 540 )
+
+[node name="Warps" type="Node2D" parent="World"]
+script = ExtResource( 3 )
+warps = [ "res://scenes/dw1/dw1.tscn" ]
+links = [ 0 ]
+
+[node name="Warp1" type="Area2D" parent="World/Warps"]
+position = Vector2( 66.2566, 317.783 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="World/Warps/Warp1"]
+polygon = PoolVector2Array( -19, -40, 19, -40, 19, 40, -19, 40 )
+
+[node name="LoadPlace" type="Position2D" parent="World/Warps/Warp1"]
+position = Vector2( 38, -22 )
+
+[node name="Objects" type="Node2D" parent="."]
+script = ExtResource( 4 )
+textNode = NodePath("../Hud/TextStuff")
+
+[node name="Player" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 782, 320 )
+direction = "left"
+world = "bp"
+movementType = 0
+framesPath = "res://Sprites/you/norm/bp/normbp.tres"
+animChange = "right"
+animStopping = true
+
+[node name="PlayerSprite" parent="Objects/Player/PlayerBody" index="0"]
+animation = "left"
+frame = 2
+
+[node name="object" type="Node2D" parent="Objects"]
+position = Vector2( 910, 432 )
+script = ExtResource( 2 )
+stringName = "hop"
+source = "res://scenes/dw1/text/"
+
+[node name="object" type="StaticBody2D" parent="Objects/object"]
+scale = Vector2( 32, 32 )
+
+[node name="MeshInstance2D" type="Sprite" parent="Objects/object/object"]
+scale = Vector2( 0.031, 0.031 )
+texture = ExtResource( 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/object/object"]
+polygon = PoolVector2Array( -0.489594, 0.496306, 1, 1, -1, 1, -1, 0 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/object"]
+anims/reset = SubResource( 1 )
+anims/roll = SubResource( 2 )
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="TextStuff" parent="Hud" instance=ExtResource( 7 )]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate"]
+anims/intro = SubResource( 3 )
+
+[editable path="Objects/Player"]

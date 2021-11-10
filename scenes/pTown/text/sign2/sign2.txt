@@ -1,0 +1,1 @@
+{/dataGet=data.rivalName}'s house

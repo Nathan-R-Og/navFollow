@@ -1,0 +1,237 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/overworld/World Camera.gd" type="Script" id=1]
+[ext_resource path="res://scenes/textStuff.gd" type="Script" id=2]
+[ext_resource path="res://scenes/objectSetDepth.gd" type="Script" id=3]
+[ext_resource path="res://scenes/warps.gd" type="Script" id=4]
+[ext_resource path="res://scenes/pTown/29.png" type="Texture" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://assets/overworld/player/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://textFunctions/TextStuff.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "reset"
+tracks/0/type = "value"
+tracks/0/path = NodePath("sign1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sign1/MeshInstance2D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("sign1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -640, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sign1/MeshInstance2D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 90.0, 180.0 ]
+}
+
+[node name="World" type="Node2D"]
+
+[node name="room_dark1_ch1" type="Sprite" parent="."]
+position = Vector2( 640, 576 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Objects" type="Node2D" parent="."]
+script = ExtResource( 3 )
+textNode = NodePath("../Hud/TextStuff")
+
+[node name="Player" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( 356.166, 409.444 )
+animPath = "res://Sprites/oad/"
+
+[node name="sign1" type="Node2D" parent="Objects"]
+position = Vector2( 479.047, 606.734 )
+script = ExtResource( 2 )
+stringName = "sign1"
+source = "res://scenes/pTown/text/"
+
+[node name="sign1" type="StaticBody2D" parent="Objects/sign1"]
+scale = Vector2( 32, 32 )
+
+[node name="MeshInstance2D" type="Sprite" parent="Objects/sign1/sign1"]
+scale = Vector2( 0.031, 0.031 )
+texture = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/sign1/sign1"]
+polygon = PoolVector2Array( 1, 0, 1, 1, -1, 1, -1, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/sign1"]
+anims/reset = SubResource( 1 )
+anims/roll = SubResource( 2 )
+
+[node name="sign2" type="Node2D" parent="Objects"]
+position = Vector2( 737.465, 351.329 )
+script = ExtResource( 2 )
+stringName = "sign2"
+source = "res://scenes/pTown/text/"
+
+[node name="sign2" type="StaticBody2D" parent="Objects/sign2"]
+scale = Vector2( 32, 32 )
+
+[node name="MeshInstance2D" type="Sprite" parent="Objects/sign2/sign2"]
+scale = Vector2( 0.031, 0.031 )
+texture = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/sign2/sign2"]
+polygon = PoolVector2Array( 1, 0, 1, 1, -1, 1, -1, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/sign2"]
+
+[node name="sign3" type="Node2D" parent="Objects"]
+position = Vector2( 224.677, 348.809 )
+script = ExtResource( 2 )
+stringName = "sign3"
+source = "res://scenes/pTown/text/"
+
+[node name="sign3" type="StaticBody2D" parent="Objects/sign3"]
+scale = Vector2( 32, 32 )
+
+[node name="MeshInstance2D" type="Sprite" parent="Objects/sign3/sign3"]
+scale = Vector2( 0.031, 0.031 )
+texture = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/sign3/sign3"]
+polygon = PoolVector2Array( 1, 0, 1, 1, -1, 1, -1, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/sign3"]
+
+[node name="sign4" type="Node2D" parent="Objects"]
+position = Vector2( 863.863, 863.244 )
+script = ExtResource( 2 )
+stringName = "sign4"
+source = "res://scenes/pTown/text/"
+
+[node name="sign4" type="StaticBody2D" parent="Objects/sign4"]
+scale = Vector2( 32, 32 )
+
+[node name="MeshInstance2D" type="Sprite" parent="Objects/sign4/sign4"]
+scale = Vector2( 0.031, 0.031 )
+texture = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/sign4/sign4"]
+polygon = PoolVector2Array( 1, 0, 1, 1, -1, 1, -1, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/sign4"]
+
+[node name="dude1" type="Node2D" parent="Objects"]
+position = Vector2( 670.581, 980.112 )
+script = ExtResource( 2 )
+stringName = "dude1"
+source = "res://scenes/pTown/text/"
+BEHAVIOR = 1
+
+[node name="dude1" type="StaticBody2D" parent="Objects/dude1"]
+scale = Vector2( 32, 32 )
+
+[node name="MeshInstance2D" type="Sprite" parent="Objects/dude1/dude1"]
+scale = Vector2( 0.031, 0.031 )
+texture = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/dude1/dude1"]
+polygon = PoolVector2Array( 1, 0, 1, 1, -1, 1, -1, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/dude1"]
+
+[node name="lady1" type="Node2D" parent="Objects"]
+position = Vector2( 287.607, 528.671 )
+script = ExtResource( 2 )
+stringName = "lady1"
+source = "res://scenes/pTown/text/"
+BEHAVIOR = 1
+
+[node name="lady1" type="StaticBody2D" parent="Objects/lady1"]
+scale = Vector2( 32, 32 )
+
+[node name="MeshInstance2D" type="Sprite" parent="Objects/lady1/lady1"]
+scale = Vector2( 0.031, 0.031 )
+texture = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/lady1/lady1"]
+polygon = PoolVector2Array( 1, 0, 1, 1, -1, 1, -1, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/lady1"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="World"]
+position = Vector2( 480, 270 )
+current = true
+script = ExtResource( 1 )
+playerPath = NodePath("../../Objects/Player")
+
+[node name="TileMap" type="TileMap" parent="World"]
+format = 1
+
+[node name="rigid" type="StaticBody2D" parent="World"]
+position = Vector2( 320, 140 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/rigid"]
+position = Vector2( -117.1, -35.5594 )
+polygon = PoolVector2Array( 1081.24, -31.16, 1071.88, 1043.06, 49.4019, 1045.64, 54.1641, 793.244, 314.498, 798.007, 308.148, 982.145, 1024.69, 995.863, 1012.34, 10.3705, -145.765, 19.8784, -141.939, 974.446, -70.6675, 986.919, -68.8857, 1047.5, -197.175, 1038.59, -187.296, -20.7082 )
+
+[node name="cameraStart" type="Position2D" parent="World"]
+
+[node name="cameraEnd" type="Position2D" parent="World"]
+position = Vector2( 1280, 1152 )
+
+[node name="Warps" type="Node2D" parent="World"]
+position = Vector2( -784.209, 20.4503 )
+script = ExtResource( 4 )
+warps = [ "res://scenes/dw2/dw2.tscn" ]
+links = [ 0 ]
+
+[node name="Warp1" type="Area2D" parent="World/Warps"]
+position = Vector2( 208.535, 198.083 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="World/Warps/Warp1"]
+position = Vector2( -11.5161, -11.0907 )
+polygon = PoolVector2Array( -19, -40, 19, -40, 19, 40, -19, 40 )
+
+[node name="LoadPlace" type="Position2D" parent="World/Warps/Warp1"]
+position = Vector2( 6.10852, -9.52744 )
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="TextStuff" parent="Hud" instance=ExtResource( 8 )]

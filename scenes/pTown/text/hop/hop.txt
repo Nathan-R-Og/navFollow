@@ -1,0 +1,4 @@
+Jump.
+{/npcAnimatePlayer=hop}...{/forceClose}
+{/npcAnimatePlayer=reset}{/setBranchobject=bye}{/animation1=think}Quaint.{/animFX=stop}
+{/npcAnimateobject=roll}

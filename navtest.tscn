@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://navTest.gd" type="Script" id=2]
+[ext_resource path="res://assets/overworld/player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/overworld/player2/Player2.tscn" type="PackedScene" id=5]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( -568.241, -120.562, 1515.83, -139.44, 1666.85, 504.283, -413.445, 515.609 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( -568.241, -120.562, 1515.83, -139.44, 1666.85, 504.283, -413.445, 515.609 ) ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 34.2271, 34.2542 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+navPath = NodePath("Navigation2D")
+linePath = NodePath("Line2D")
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( 208.137, 83.6444 )
+scale = Vector2( 0.5, 1 )
+navpoly = SubResource( 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 358.845, 182.793 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="obj" type="Node2D" parent="."]
+
+[node name="Player" parent="obj" instance=ExtResource( 4 )]
+position = Vector2( 292.448, 60.0157 )
+
+[node name="Player2" parent="obj" instance=ExtResource( 5 )]
+MainPath = NodePath("../Player")
+
+[node name="Player3" parent="obj" instance=ExtResource( 5 )]
+position = Vector2( 786.846, 140.308 )
+MainPath = NodePath("../Player2")
+
+[node name="Player4" parent="obj" instance=ExtResource( 5 )]
+position = Vector2( 640.695, 248.661 )
+MainPath = NodePath("../Player3")
+
+[node name="Player5" parent="obj" instance=ExtResource( 5 )]
+position = Vector2( 642.283, 362.954 )
+MainPath = NodePath("../Player4")
+
+[node name="Player6" parent="obj" instance=ExtResource( 5 )]
+position = Vector2( 913.728, 274.059 )
+MainPath = NodePath("../Player5")
+
+[node name="Player7" parent="obj" instance=ExtResource( 5 )]
+position = Vector2( 794.673, 386.765 )
+MainPath = NodePath("../Player6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

@@ -1,0 +1,2 @@
+I'm raising{/lineBreak}POKéMON too!
+When they get{/lineBreak}strong, they can{/lineBreak}protect me!
