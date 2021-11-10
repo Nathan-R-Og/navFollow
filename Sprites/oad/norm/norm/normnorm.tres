@@ -1,0 +1,61 @@
+[gd_resource type="SpriteFrames" load_steps=17 format=2]
+
+[ext_resource path="res://Sprites/oad/norm/norm/left/3.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/oad/norm/norm/up/2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/oad/norm/norm/right/1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/oad/norm/norm/down/3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/oad/norm/norm/left/1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/oad/norm/norm/down/2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/oad/norm/norm/up/0.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/oad/norm/norm/down/1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/oad/norm/norm/right/2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/oad/norm/norm/left/4.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/oad/norm/norm/up/3.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/oad/norm/norm/right/3.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/oad/norm/norm/up/1.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/oad/norm/norm/right/4.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/oad/norm/norm/down/4.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/oad/norm/norm/left/2.png" type="Texture" id=16]
+
+[resource]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 16 ), ExtResource( 1 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 13 ), ExtResource( 2 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "downLeft",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "upRight",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "upLeft",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "downRight",
+"speed": 5.0
+} ]
